@@ -14,4 +14,14 @@ public class LoginTests extends BasicTest{
         Assert.assertTrue(pageUrl.isLoginPage(),
                 "Should be redirected to the Login page.");
     }
+    @Test (priority = 2, retryAnalyzer = RetryAnalyzer.class)
+    public void checksInputTypes () {
+        navPage.clickOnLoginButton();
+
+        Assert.assertEquals(loginPage.getEmailInputType(), "email",
+                "The attribute type for email field should be 'email'.");
+
+        Assert.assertEquals(loginPage.getPasswordInputType(), "password",
+                "The attribute type for email field should be 'password'.");
+    }
 }
