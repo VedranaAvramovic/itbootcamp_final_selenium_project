@@ -41,4 +41,19 @@ public class LoginTests extends BasicTest {
         Assert.assertTrue(pageUrl.isLoginPage(),
                 "Should be redirected to the Login page.");
     }
+    @Test (priority = 4, retryAnalyzer = RetryAnalyzer.class)
+    public void displaysErrorsWhenPasswordIsWrong () {
+        String email = "admin@admin.com";
+        String password = "password123";
+
+        navPage.clickOnLoginButton();
+        loginPage.login(email,password);
+        messagePopUpPage.waitForErrorPopUpToBeVisible();
+
+        Assert.assertEquals(messagePopUpPage.getErrorMessageText(), "Wrong password",
+                "Error message should be 'Wrong password'.");
+
+        Assert.assertTrue(pageUrl.isLoginPage(),
+                "Should be redirected to the Login page.");
+    }
 }
