@@ -56,4 +56,15 @@ public class LoginTests extends BasicTest {
         Assert.assertTrue(pageUrl.isLoginPage(),
                 "Should be redirected to the Login page.");
     }
+    @Test (priority = 5, retryAnalyzer = RetryAnalyzer.class)
+    public void login () {
+        String email = "admin@admin.com";
+        String password = "12345";
+
+        navPage.clickOnLoginButton();
+        loginPage.login(email,password);
+
+        Assert.assertTrue(pageUrl.isHomePage(),
+                "Should be redirected to the Home page.");
+    }
 }
