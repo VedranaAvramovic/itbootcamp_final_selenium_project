@@ -28,4 +28,10 @@ public class NavPage extends BasicPage{
     public void clickOnLoginButton () {
         getLoginButton().click();
     }
+    public WebElement getLogoutButton () {
+        return driver.findElement(By.className("btnLogout"));
+    }
+    public void clickOnLogoutButton () {
+        getLogoutButton().click();
+    }
 }

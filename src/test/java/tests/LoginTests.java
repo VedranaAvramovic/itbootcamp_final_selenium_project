@@ -67,4 +67,14 @@ public class LoginTests extends BasicTest {
         Assert.assertTrue(pageUrl.isHomePage(),
                 "Should be redirected to the Home page.");
     }
+    @Test (priority = 6, retryAnalyzer = RetryAnalyzer.class)
+    public void logout () {
+        Assert.assertTrue(navPage.getLogoutButton().isDisplayed(),
+                "Logout button should be visible.");
+
+        navPage.clickOnLogoutButton();
+
+        Assert.assertTrue(pageUrl.isLoginPage(),
+                "Should be redirected to the Login page.");
+    }
 }
