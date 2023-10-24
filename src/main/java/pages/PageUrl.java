@@ -8,6 +8,7 @@ public class PageUrl extends BasicPage{
     public String loginPage = "/login";
     public String homePage = "/home";
     public String signUpPage = "/signup";
+    public String adminCitiesPage = "/admin/cities";
     public PageUrl(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
@@ -27,5 +28,8 @@ public class PageUrl extends BasicPage{
     }
     public boolean isSignUpPage () {
         return isPage(signUpPage);
+    }
+    public boolean isAdminCitiesPage () {
+        return isPage(adminCitiesPage);
     }
 }

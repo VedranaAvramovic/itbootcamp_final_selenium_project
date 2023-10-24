@@ -40,4 +40,16 @@ public class NavPage extends BasicPage{
     public void clickOnSignUpButton () {
         getSignUpButton().click();
     }
+    public WebElement getAdminButton () {
+        return driver.findElement(By.className("btnAdmin"));
+    }
+    public void clickOnAdminButton () {
+        getAdminButton().click();
+    }
+    public WebElement getAdminCitiesButton () {
+        return driver.findElement(By.className("btnAdminCities"));
+    }
+    public void clickOnAdminCitiesButton () {
+        getAdminCitiesButton().click();
+    }
 }
