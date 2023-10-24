@@ -58,4 +58,10 @@ public class CitiesPage extends BasicPage{
     public void clickOnEditButtonFromTableRow(int row){
         getEditButtonFromTableRow(row).click();
     }
+    public WebElement getFieldFromTable (int row, int column){
+        return driver.findElement(By.xpath("//tbody/tr[" + row + "]/td[" + column + "]"));
+    }
+    public String getTextFromTheField (int row,int column) {
+        return getFieldFromTable(row, column).getText();
+    }
 }
