@@ -47,4 +47,24 @@ public class AdminCitiesTests extends BasicTest{
                         .contains("Saved successfully"),
                 "Success pop-up message should contain 'Saved successfully'");
     }
+    @Test (priority = 4, retryAnalyzer = RetryAnalyzer.class)
+    public void editCity () {
+        String oldCityName = "Vedrana Avramovic's city";
+        String newCityName = "Vedrana Avramovic's city Edited";
+
+        navPage.clickOnAdminButton();
+        navPage.clickOnAdminCitiesButton();
+
+        citiesPage.clearAndTypeInSearch(oldCityName);
+        citiesPage.waitForNumberOfTableRows(1);
+        citiesPage.clickOnEditButtonFromTableRow(1);
+
+        citiesPage.clearAndTypeName(newCityName);
+        citiesPage.clickOnSaveButton();
+
+        messagePopUpPage.waitForSuccessfullyPopUpMessage();
+        Assert.assertTrue(messagePopUpPage.getSuccessfullyPopUpMessageText()
+                        .contains("Saved successfully"),
+                "Success pop-up message should contain 'Saved successfully'");
+    }
 }

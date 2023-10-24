@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,13 +33,29 @@ public class CitiesPage extends BasicPage{
         return getNameInput().getAttribute("type");
     }
     public void clearAndTypeName (String cityName) {
-        getNameInput().clear();
-        getNameInput().sendKeys(cityName);
+        getNameInput().sendKeys(Keys.chord(Keys.CONTROL, "a"),cityName);
     }
     public WebElement getSaveButton () {
         return driver.findElement(By.className("btnSave"));
     }
     public void clickOnSaveButton () {
         getSaveButton().click();
+    }
+    public WebElement getSearchInput () {
+        return driver.findElement(By.id("search"));
+    }
+    public void clearAndTypeInSearch (String city) {
+        getSearchInput().sendKeys(city);
+    }
+    public WebElement getEditButtonFromTableRow (int row) {
+        return driver.findElements(By.id("edit")).get(row-1);
+    }
+    public void waitForNumberOfTableRows(int numberOfRows){
+        wait
+                .withMessage("Number of rows should be " + numberOfRows)
+                .until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("tbody > tr"), numberOfRows));
+    }
+    public void clickOnEditButtonFromTableRow(int row){
+        getEditButtonFromTableRow(row).click();
     }
 }
