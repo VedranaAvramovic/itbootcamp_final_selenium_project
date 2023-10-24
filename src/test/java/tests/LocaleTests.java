@@ -14,4 +14,12 @@ public class LocaleTests extends BasicTest {
         Assert.assertEquals(landingPage.getHeaderText(), landingPage.expectedEsHeaderText,
                 "Text in header should be " + landingPage.expectedEsHeaderText);
     }
+    @Test (priority = 2, retryAnalyzer = RetryAnalyzer.class)
+    public void setLocaleToEn () {
+        navPage.clickOnLanguagesButton();
+        navPage.clickOnEnLanguageButton();
+
+        Assert.assertEquals(landingPage.getHeaderText(), landingPage.expectedEnHeaderText,
+                "Text in header should be " + landingPage.expectedEnHeaderText);
+    }
 }
