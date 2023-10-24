@@ -52,4 +52,10 @@ public class NavPage extends BasicPage{
     public void clickOnAdminCitiesButton () {
         getAdminCitiesButton().click();
     }
+    public WebElement getEsLanguageButton () {
+        return driver.findElement(By.className("btnES"));
+    }
+    public void clickOnEsLanguageButton () {
+        getEsLanguageButton().click();
+    }
 }
