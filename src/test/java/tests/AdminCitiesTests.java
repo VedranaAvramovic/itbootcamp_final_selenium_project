@@ -19,4 +19,15 @@ public class AdminCitiesTests extends BasicTest{
         Assert.assertTrue(pageUrl.isAdminCitiesPage(),
                 "Should be redirected to the Admin/Cities page.");
     }
+    @Test(priority = 2, retryAnalyzer = RetryAnalyzer.class)
+    public void checksInputTypesForCreateOrEditNewCity () {
+        navPage.clickOnAdminButton();
+        navPage.clickOnAdminCitiesButton();
+
+        citiesPage.clickOnNewItemButton();
+        citiesPage.waitForCreateOrEditDialog();
+
+        Assert.assertEquals(citiesPage.getNameInputType(), "text",
+                "The attribute type for name field should be 'text'.");
+    }
 }
