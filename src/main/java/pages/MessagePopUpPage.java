@@ -42,4 +42,15 @@ public class MessagePopUpPage extends BasicPage{
     public void clickOnVerifyDialogCloseButton () {
         getVerifyDialogCloseButton().click();
     }
+    public WebElement getSuccessfullyPopUpMessage () {
+        return driver.findElement(By.cssSelector(".success .v-snack__content"));
+    }
+    public void waitForSuccessfullyPopUpMessage () {
+        wait
+                .withMessage("Success pop-up message should be visible.")
+                .until(ExpectedConditions.visibilityOf(getSuccessfullyPopUpMessage()));
+    }
+    public String getSuccessfullyPopUpMessageText () {
+        return getSuccessfullyPopUpMessage().getText();
+    }
 }

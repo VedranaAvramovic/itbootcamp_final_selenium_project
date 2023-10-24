@@ -31,4 +31,14 @@ public class CitiesPage extends BasicPage{
     public String getNameInputType () {
         return getNameInput().getAttribute("type");
     }
+    public void clearAndTypeName (String cityName) {
+        getNameInput().clear();
+        getNameInput().sendKeys(cityName);
+    }
+    public WebElement getSaveButton () {
+        return driver.findElement(By.className("btnSave"));
+    }
+    public void clickOnSaveButton () {
+        getSaveButton().click();
+    }
 }
