@@ -28,4 +28,37 @@ public class SignupPage extends BasicPage{
     public String getConfirmPasswordInputType(){
         return getConfirmPasswordInput().getAttribute("type");
     }
+    public WebElement getNameInput () {
+        return driver.findElement(By.id("name"));
+    }
+    public WebElement getSignMeUp () {
+        return driver.findElement(By.cssSelector("button[type='submit']"));
+    }
+    public void clickOnSignMeUp () {
+        getSignMeUp().click();
+    }
+    public void clearAndTypeName (String name) {
+        getNameInput().clear();
+        getNameInput().sendKeys(name);
+    }
+    public void clearAndTypeEmail (String email) {
+        getEmailInput().clear();
+        getEmailInput().sendKeys(email);
+    }
+    public void clearAndTypePassword (String password) {
+        getPasswordInput().clear();
+        getPasswordInput().sendKeys(password);
+    }
+    public void clearAndTypeConfirmPassword (String confirmPassword) {
+        getConfirmPasswordInput().clear();
+        getConfirmPasswordInput().sendKeys(confirmPassword);
+    }
+    public void signMeUp (String name, String email, String password, String confirmPassword) {
+        clearAndTypeName(name);
+        clearAndTypeEmail(email);
+        clearAndTypePassword(password);
+        clearAndTypeConfirmPassword(confirmPassword);
+
+        clickOnSignMeUp();
+    }
 }

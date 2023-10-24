@@ -27,4 +27,24 @@ public class SignupTests extends BasicTest{
         Assert.assertEquals(signupPage.getConfirmPasswordInputType(),"password",
                 "The attribute type for confirm password field should be 'password'.");
     }
+    @Test (priority = 3, retryAnalyzer = RetryAnalyzer.class)
+    public void displaysErrorsWhenUserAlreadyExists () {
+        String name = "Another User";
+        String email = "admin@admin.com";
+        String password = "12345";
+        String confirmPassword = "12345";
+
+        navPage.clickOnSignUpButton();
+        Assert.assertTrue(pageUrl.isSignUpPage(),
+                "Should be redirected to the Sign Up page.");
+
+        signupPage.signMeUp(name,email,password,confirmPassword);
+
+        messagePopUpPage.waitForErrorPopUpToBeVisible();
+        Assert.assertEquals(messagePopUpPage.getErrorMessageText(), "E-mail already exists",
+                "Error message should be 'E-mail already exists'.");
+
+        Assert.assertTrue(pageUrl.isSignUpPage(),
+                "Should be redirected to the Sign Up page.");
+    }
 }
