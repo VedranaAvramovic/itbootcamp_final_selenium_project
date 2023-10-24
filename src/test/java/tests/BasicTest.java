@@ -10,10 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import pages.LoginPage;
-import pages.MessagePopUpPage;
-import pages.NavPage;
-import pages.PageUrl;
+import pages.*;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -26,6 +23,7 @@ public abstract class BasicTest {
     protected PageUrl pageUrl;
     protected LoginPage loginPage;
     protected MessagePopUpPage messagePopUpPage;
+    protected SignupPage signupPage;
 
     @BeforeClass
     public void setup () {
@@ -39,6 +37,7 @@ public abstract class BasicTest {
         pageUrl = new PageUrl(driver,wait);
         loginPage = new LoginPage(driver,wait);
         messagePopUpPage = new MessagePopUpPage(driver,wait);
+        signupPage = new SignupPage(driver,wait);
     }
 
     @BeforeMethod
