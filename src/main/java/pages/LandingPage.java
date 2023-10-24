@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class LandingPage extends BasicPage{
     public String expectedEsHeaderText = "Página de aterrizaje";
     public String expectedEnHeaderText = "Landing";
+    public String expectedCnHeaderText = "首页";
     public LandingPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
