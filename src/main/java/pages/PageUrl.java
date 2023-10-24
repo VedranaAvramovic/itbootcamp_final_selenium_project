@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PageUrl extends BasicPage{
     public String loginPage = "/login";
     public String homePage = "/home";
+    public String signUpPage = "/signup";
     public PageUrl(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
@@ -23,5 +24,8 @@ public class PageUrl extends BasicPage{
                 .until(ExpectedConditions.urlContains(homePage));
 
         return isPage(homePage);
+    }
+    public boolean isSignUpPage () {
+        return isPage(signUpPage);
     }
 }
