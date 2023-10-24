@@ -47,4 +47,26 @@ public class SignupTests extends BasicTest{
         Assert.assertTrue(pageUrl.isSignUpPage(),
                 "Should be redirected to the Sign Up page.");
     }
+    @Test (priority = 4, retryAnalyzer = RetryAnalyzer.class)
+    public void signUp() {
+        String name = "Vedrana Avramovic";
+        String email = "vedrana.avramovic@itbootcamp.com";
+        String password = "12345";
+        String confirmPassword = "12345";
+
+        navPage.clickOnSignUpButton();
+        signupPage.signMeUp(name,email,password,confirmPassword);
+
+        Assert.assertTrue(pageUrl.isHomePage(),
+                "Should be redirected to the Home page.");
+
+        messagePopUpPage.waitForVerifyAccountMessageToBeVisible();
+
+        Assert.assertTrue(messagePopUpPage.getPopUpVerifyAccountMessage()
+                        .contains("IMPORTANT: Verify your account"),
+                "Error message should be 'IMPORTANT: Verify your account'");
+
+        messagePopUpPage.clickOnVerifyDialogCloseButton();
+        navPage.clickOnLogoutButton();
+    }
 }

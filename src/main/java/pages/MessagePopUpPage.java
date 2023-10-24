@@ -25,4 +25,21 @@ public class MessagePopUpPage extends BasicPage{
     public String getErrorMessageText () {
         return getErrorMessage().getText();
     }
+    public WebElement getPopUpVerifyAccountDialog () {
+        return driver.findElement(By.className("v-card__title"));
+    }
+    public void waitForVerifyAccountMessageToBeVisible () {
+        wait
+                .withMessage("Verify account message should be visible.")
+                .until(ExpectedConditions.visibilityOf(getPopUpVerifyAccountDialog()));
+    }
+    public String getPopUpVerifyAccountMessage () {
+        return getPopUpVerifyAccountDialog().getText();
+    }
+    public WebElement getVerifyDialogCloseButton () {
+        return driver.findElement(By.className("btnClose"));
+    }
+    public void clickOnVerifyDialogCloseButton () {
+        getVerifyDialogCloseButton().click();
+    }
 }
