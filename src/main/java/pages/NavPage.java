@@ -64,4 +64,10 @@ public class NavPage extends BasicPage{
     public void clickOnCnLanguageButton () {
         getCnLanguageButton().click();
     }
+    public WebElement getFrLanguageButton () {
+        return driver.findElement(By.className("btnFR"));
+    }
+    public void clickOnFrLanguageButton () {
+        getFrLanguageButton().click();
+    }
 }
