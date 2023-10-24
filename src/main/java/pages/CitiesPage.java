@@ -64,4 +64,21 @@ public class CitiesPage extends BasicPage{
     public String getTextFromTheField (int row,int column) {
         return getFieldFromTable(row, column).getText();
     }
+    public WebElement getDeleteButtonFromTableRow (int row) {
+        return driver.findElements(By.id("delete")).get(row-1);
+    }
+    public void clickOnDeleteButtonFromTableRow (int row) {
+        getDeleteButtonFromTableRow(row).click();
+    }
+    public void waitForDeleteDialog () {
+        wait
+                .withMessage("Delete warning dialog should be visible.")
+                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("header.warning")));
+    }
+    public WebElement getDeleteButtonFromDialog () {
+        return driver.findElement(By.cssSelector(".v-dialog__content--active button.text--lighten3"));
+    }
+    public void clickOnDeleteButtonFromDialog () {
+        getDeleteButtonFromDialog().click();
+    }
 }
