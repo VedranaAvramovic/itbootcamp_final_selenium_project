@@ -10,6 +10,7 @@ public class PageUrl extends BasicPage{
     public String signUpPage = "/signup";
     public String adminCitiesPage = "/admin/cities";
     public String profilePage = "/profile";
+    public String adminUsersPage = "/admin/users";
     public PageUrl(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }

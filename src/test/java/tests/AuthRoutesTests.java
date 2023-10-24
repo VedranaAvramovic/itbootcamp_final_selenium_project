@@ -27,4 +27,11 @@ public class AuthRoutesTests extends BasicTest{
         Assert.assertTrue(pageUrl.isLoginPage(),
                 "Should be redirected to the Login page.");
     }
+    @Test (priority = 4, retryAnalyzer = RetryAnalyzer.class)
+    public void forbidsVisitsToAdminUsersUrlIfNotAuthenticated () {
+        driver.navigate().to(baseUrl + pageUrl.adminUsersPage);
+
+        Assert.assertTrue(pageUrl.isLoginPage(),
+                "Should be redirected to the Login page.");
+    }
 }
